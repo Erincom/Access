@@ -1,0 +1,23 @@
+<div class="container padded">
+  <h1><%= @company %></h1>
+  <div class="row">
+    <div class="col-md-6 padded-sm">
+      Student name
+    </div>
+    <div class="col-md-6 padded-sm">
+      Level
+    </div>
+  </div>
+  <% @students.each do |student| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to student_path(student) do %>
+      <%= student.firstname %> <%= student.lastname %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <%= student.currentlevel %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,51 @@
+<div class="container padded">
+  <div class="edit-links">
+    <%= link_to edit_student_path(@student) do %>
+    <span class="fa fa-pencil"> Edit</span>
+    <% end %>
+  </div>
+  <%= link_to student_path(@student), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <span class="fa fa-trash-o"> Delete</span>
+  <% end %>
+  <h1><%= @student.firstname %> <%= @student.lastname %></h1>
+  <% if @student.leftthecompany == false %>
+  <h3><%= @student.company %></h3>
+  <% else %>
+  <h3><%= @student.company %> (departed)</h3>
+  <% end %>
+  <% if @student.division.present? %>
+  <h4><%= @student.division %> Consulting</h4>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>Original level: <%= @student.originallevel %></p>
+      <p>Current level: <%= @student.currentlevel %></p>
+      <p>Placement test on: <%= @student.testscoredate.strftime('%B %e, %Y') %></p>
+    </div>
+    <div class="col-md-6">
+      <% if @student.readingtestscore.present? %>
+      <p>Listening test score: <%= @student.listeningtestscore %> / 25</p>
+      <p>Grammar test score: <%= @student.grammartestscore %> / 20</p>
+      <p>Vocabulary test score: <%= @student.vocabtestscore %> / 20</p>
+      <p>Reading test score: <%= @student.readingtestscore %> / 15</p>
+      <% end %>
+    </div>
+  </div>
+  <h3>Sessions attended:</h3>
+  <% @student.metaclasses.sort.reverse.each do |metaclass| %>
+  <div class="row">
+  <div class="col-md-4">
+      <%= metaclass.metaclassname %>
+    </div>
+    <div class="col-md-4">
+      <%= metaclass.instructor.instructor %>
+    </div>
+    <div class="col-md-4">
+      <%= metaclass.metaclassdaytime %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

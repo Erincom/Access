@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container padded">
+  <div class="home-search">
+  <h3>Search students</h3>
+    <%= render 'shared/filter_lastname' %>
+    <br>
+    <%= render 'shared/filter_company' %>
+  </div>
+  <div class="home-search">
+    <h3>Search metaclasses</h3>
+  </div>
+</div>

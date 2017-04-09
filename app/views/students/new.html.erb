@@ -1,0 +1,36 @@
+<div class="container padded">
+  <div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+      <h2>Add a new student</h2>
+
+      <%= simple_form_for @student do |f| %>
+
+      <div class="form-inputs">
+        <div class="fields-inline">
+          <%= f.input :firstname, required: true, label: "First name", autofocus: true, wrapper_html: { style: "display: inline" } %>
+          <%= f.input :lastname, required: true, label: "Last name", wrapper_html: { style: "display: inline" } %>
+        </div>
+        <div class="fields-inline">
+          <%= f.input :company, required: true, wrapper_html: { style: "display: inline" } %>
+          <%= f.input :division, label: "Division (for Softeam)", wrapper_html: { style: "display: inline" } %>
+        </div>
+        <div class="fields-inline">
+          <%= f.input :originallevel, required: true, label: "Original level", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :currentlevel, required: true, label: "Current level", wrapper_html: { style: "display: inline" } %>
+        </div>
+        <%= f.input :testscoredate, as: :date, required: true, label: "Placement test date" %>
+        <div class="fields-inline">
+          <%= f.input :listeningtestscore, label: "Listening test score ( / 25)", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :grammartestscore, label: "Grammar test score ( / 20)", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :vocabtestscore, label: "Vocabulary test score ( / 20)", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :readingtestscore, label: "Reading test score ( / 15)", wrapper_html: { style: "display: inline" } %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Add student" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

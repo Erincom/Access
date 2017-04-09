@@ -1,0 +1,22 @@
+<div class="container padded">
+  <div class="edit-links">
+    <%= link_to edit_metaclass_path(@metaclass) do %>
+    <span class="fa fa-pencil"> Edit</span>
+    <% end %>
+  </div>
+  <%= link_to metaclass_path(@metaclass), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <span class="fa fa-trash-o"> Delete</span>
+  <% end %>
+  <h1><%= @metaclass.metaclassname %></h1>
+  <div class="row">
+    <div class="col-md-6">
+      <p>Instructor: <%= @metaclass.instructor.instructor %></p>
+      <p>Location: <%= @metaclass.metaclasslocation %></p>
+    </div>
+    <div class="col-md-6">
+      <p>Timeslot: <%= @metaclass.metaclassdaytime %></p>
+      <p>Number of hours: <%= calculate_hours(@metaclass.metaclassdaytime) %></p>
+    </div>
+  </div>
+
+</div>
