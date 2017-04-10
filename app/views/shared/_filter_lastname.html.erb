@@ -1,5 +1,5 @@
 <%= form_tag(students_path, :method => "get", class: 'inline-form', id: "search") do %>
-<%= select_tag :lastname, options_from_collection_for_select(Student.all.order('students.lastname ASC'), :studentid, :lastname), {include_blank: true, class: 'select select_lastname', prompt: "Find by last name" }  %>
+<%= select_tag :lastname, options_from_collection_for_select(Student.all.order('students.lastname ASC'), :studentid, :student_name), {include_blank: true, class: 'select select_lastname', prompt: "Find by name" }  %>
 <div class="blank-space"></div>
 <%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
 <% end %>

@@ -12,4 +12,8 @@ class Student < ApplicationRecord
   validates :originallevel, presence: true
   validates :currentlevel, presence: true
   validates :testscoredate, presence: true
+
+  def student_name
+    "#{self.lastname}, #{self.firstname}"
+  end
 end

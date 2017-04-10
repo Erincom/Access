@@ -1,9 +1,14 @@
 .fields-inline {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .align-right {
-    position: absolute;
-    right: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.align-left {
+  position: absolute;
+  left: 130px;
 }

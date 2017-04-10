@@ -6,7 +6,7 @@ class InstructorsController < ApplicationController
   end
 
   def create
-    @instructor = Instructor.new
+    @instructor = Instructor.new(instructor_params)
     if @instructor.save
       redirect_to new_metaclass_path
     else
@@ -17,6 +17,6 @@ class InstructorsController < ApplicationController
   private
 
   def instructor_params
-    params.require(:metaclass).permit(:instructor)
+    params.require(:instructor).permit(:instructor)
   end
 end
