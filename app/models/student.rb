@@ -5,4 +5,11 @@ class Student < ApplicationRecord
   has_many :metaclasses, through: :student_metaclasses
 
   scope :by_company, -> (company) { where(company: company) }
+
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :company, presence: true
+  validates :originallevel, presence: true
+  validates :currentlevel, presence: true
+  validates :testscoredate, presence: true
 end

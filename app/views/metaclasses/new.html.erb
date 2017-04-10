@@ -1,2 +1,27 @@
-<h1>Metaclasses#new</h1>
-<p>Find me in app/views/metaclasses/new.html.erb</p>
+<div class="container padded">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h2>Add a new metaclass</h2>
+
+      <%= simple_form_for @metaclass do |f| %>
+
+      <div class="form-inputs">
+        <%= f.input :metaclassname, required: true, label: "Metaclass name", autofocus: true %>
+        <div class="fields-inline">
+          <%= f.association :session, label_method: :sessionname, wrapper_html: { style: "display: inline" } %>
+          <%= f.association :instructor, label_method: :instructor, include_blank: false, wrapper_html: { style: "display: inline" } %>
+          <%= link_to "Add", new_instructor_path, class: "align-right" %>
+        </div>
+        <div class="fields-inline">
+          <%= f.input :metaclassdaytime, required: true, label: "Timeslot", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :metaclasslocation, required: true, label: "Location" %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Add metaclass" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

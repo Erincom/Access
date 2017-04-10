@@ -1,6 +1,6 @@
 class MetaclassesController < ApplicationController
   before_action :authenticate_user!
-    before_action :set_metaclass, only: [:show, :edit, :update, :destroy]
+  before_action :set_metaclass, only: [:show, :edit, :update, :destroy]
 
   def index
   end

@@ -17,6 +17,11 @@
       <p>Timeslot: <%= @metaclass.metaclassdaytime %></p>
       <p>Number of hours: <%= calculate_hours(@metaclass.metaclassdaytime) %></p>
     </div>
+    <div class="col-md-12">
+      <h3>Notes:</h3>
+
+      <p><%= @metaclass.metaclassnote.html_safe if @metaclass.metaclassnote.present? %></p>
+    </div>
   </div>
 
 </div>
