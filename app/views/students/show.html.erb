@@ -32,20 +32,22 @@
       <% end %>
     </div>
   </div>
-  <h3>Sessions attended:</h3>
-  <% @student.metaclasses.sort.reverse.each do |metaclass| %>
+
   <div class="row">
-  <div class="col-md-4">
-    <%= link_to metaclass.metaclassname, metaclass_path(metaclass) %>
-    </div>
-    <div class="col-md-4">
-      <%= metaclass.instructor.instructor %>
-    </div>
-    <div class="col-md-4">
-      <%= metaclass.metaclassdaytime %>
-    </div>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Sessions</a></li>
+      <li role="presentation"><a href="#classes" aria-controls="classes" role="tab" data-toggle="tab">Classes</a></li>
+      <li role="presentation"><a href="#michigan-tests" aria-controls="michigan-tests" role="tab" data-toggle="tab">Michigan tests</a></li>
+    </ul>
   </div>
-  <% end %>
+
+  <div class="tab">
+    <div role="tabpanel" class="tab-content active" id="sessions"><%= render 'sessions' %></div>
+    <div role="tabpanel" class="tab-content" id="privacy"><%= render 'classes' %></div>
+
+    <div role="tabpanel" class="tab-content" id="licence"><%= render 'michigan_tests' %></div>
+  </div>
+
 </div>
 
 

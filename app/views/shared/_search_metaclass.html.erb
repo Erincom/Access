@@ -1,0 +1,5 @@
+<%= form_tag(metaclasses_path, :method => "get", class: 'inline-form', id: "search") do %>
+<%= select_tag :metaclassname, options_from_collection_for_select(Metaclass.all.order('metaclasses.sessionid DESC'), :metaclassid, :metaclassname), {include_blank: true, class: 'select select_metaclassname' }  %>
+<div class="blank-space"></div>
+<%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
+<% end %>

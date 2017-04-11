@@ -3,6 +3,12 @@ class MetaclassesController < ApplicationController
   before_action :set_metaclass, only: [:show, :edit, :update, :destroy]
 
   def index
+    @metaclasses = Metaclass
+
+    if params[:metaclassname].present?
+      @metaclass = Metaclass.find(params[:metaclassname])
+      redirect_to @metaclass
+    end
   end
 
   def show
