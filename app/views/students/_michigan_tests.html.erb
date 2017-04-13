@@ -1,1 +1,56 @@
-<p>hello</p>
+ <div id="michigan-tests">
+  <div class="row">
+    <div class="col-md-2">
+      <p>Session</p>
+    </div>
+    <div class="col-md-2">
+      <p>Assignment</p>
+    </div>
+    <div class="col-md-1">
+      <p>Speaking</p>
+    </div>
+    <div class="col-md-1">
+      <p>Listening</p>
+    </div>
+    <div class="col-md-1">
+      <p>Grammar</p>
+    </div>
+    <div class="col-md-1">
+      <p>Vocabulary</p>
+    </div>
+    <div class="col-md-1">
+      <p>Reading</p>
+    </div>
+    <div class="col-md-1">
+      <p>Total</p>
+    </div>
+  </div>
+  <% @student.michiganscores.each do |score| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= score.assignment.session.sessionname %>
+    </div>
+    <div class="col-md-2">
+     <%= score.assignment.assignmentdescription %>
+   </div>
+   <div class="col-md-1">
+     <%= score.speakingscore %>
+   </div>
+   <div class="col-md-1">
+    <%= score.listeningscore %>
+  </div>
+  <div class="col-md-1">
+    <%= score.grammarscore %>
+  </div>
+  <div class="col-md-1">
+    <%= score.vocabscore %>
+  </div>
+  <div class="col-md-1">
+    <%= score.readscore %>
+  </div>
+  <div class="col-md-1">
+    <%= total_score(score.speakingscore, score.listeningscore, score.grammarscore, score.vocabscore, score.readscore) %>
+  </div>
+</div>
+<% end %>
+</div>

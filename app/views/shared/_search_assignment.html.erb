@@ -1,0 +1,5 @@
+<%= form_tag(assignments_path, :method => "get", class: 'inline-form', id: "search") do %>
+<%= select_tag :assignmentdescription, options_from_collection_for_select(Assignment.all.order('assignments.assignmentdate DESC'), :assignmentid, :assignment_name), {include_blank: true, class: 'select select_assignment' }  %>
+<div class="blank-space"></div>
+<%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
+<% end %>

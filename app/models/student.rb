@@ -3,6 +3,7 @@ class Student < ApplicationRecord
 
   has_many :student_metaclasses, foreign_key: "studentid"
   has_many :metaclasses, through: :student_metaclasses
+  has_many :michiganscores, foreign_key: "studentid"
 
   scope :by_company, -> (company) { where(company: company) }
 

@@ -1,0 +1,2 @@
+module MichiganscoresHelper
+end
