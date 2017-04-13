@@ -33,6 +33,7 @@
     </div>
   </div>
 
+
   <div class="row">
     <ul class="nav nav-tabs">
       <li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Sessions</a></li>
@@ -41,12 +42,27 @@
     </ul>
   </div>
 
-  <div class="tab">
-    <div role="tabpanel" class="tab-content active" id="sessions"><%= render 'sessions' %></div>
-    <div role="tabpanel" class="tab-content" id="privacy"><%= render 'classes' %></div>
+  <div class="tab-content">
 
-    <div role="tabpanel" class="tab-content" id="licence"><%= render 'michigan_tests' %></div>
+    <div role="tabpanel" class="tab-content fade in active" id="sessions"><%= render 'sessions' %>
+    </div>
+
+    <div role="tabpanel" class="tab-content fade" id="classes"><%= render 'classes' %>
+    </div>
+
+    <div role="tabpanel" class="tab-content fade" id="michigan-tests"><%= render 'michigan_tests'
+      %>
+    </div>
+
   </div>
+
+  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.nav-tabs').tab();
+    });
+  </script>
 
 </div>
 
