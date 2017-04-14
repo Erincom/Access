@@ -3,7 +3,7 @@
       <div class="form-inputs">
         <%= f.input :metaclassname, required: true, label: "Metaclass name", placeholder: "Session-Level-Timeslot", autofocus: true %>
         <div class="fields-inline">
-          <%= f.association :session, collection: Session.order('sessionstartdate DESC'),label_method: :sessionname, include_blank: false, wrapper_html: { style: "display: inline" } %>
+          <%= f.association :session, collection: Session.order('sessionstartdate DESC'), label_method: :sessionname, include_blank: false, wrapper_html: { style: "display: inline" } %>
           <%= link_to "Add", new_session_path, class: "align-left" %>
           <%= f.association :instructor, collection: Instructor.order('instructor ASC'), label_method: :instructor, include_blank: false, wrapper_html: { style: "display: inline" } %>
           <%= link_to "Add", new_instructor_path, class: "align-right" %>

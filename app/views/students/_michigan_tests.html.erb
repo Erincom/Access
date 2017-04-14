@@ -1,5 +1,5 @@
  <div id="michigan-tests">
-  <div class="row">
+   <div class="row">
     <div class="col-md-2">
       <p>Session</p>
     </div>
@@ -20,9 +20,6 @@
     </div>
     <div class="col-md-1">
       <p>Reading</p>
-    </div>
-    <div class="col-md-1">
-      <p>Total</p>
     </div>
   </div>
   <% @student.michiganscores.each do |score| %>
@@ -49,7 +46,11 @@
     <%= score.readscore %>
   </div>
   <div class="col-md-1">
-    <%= total_score(score.speakingscore, score.listeningscore, score.grammarscore, score.vocabscore, score.readscore) %>
+    <div class="edit-links">
+      <%= link_to edit_michiganscore_path(score) do %>
+      <span class="fa fa-pencil"> Edit</span>
+      <% end %>
+    </div>
   </div>
 </div>
 <% end %>

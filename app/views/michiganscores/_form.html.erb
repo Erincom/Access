@@ -1,0 +1,19 @@
+<%= simple_form_for @michiganscore do |f| %>
+<div class="form-inputs">
+<%= link_to "Add", new_assignment_path, class: "align-right" %>
+  <%= f.association :assignment, collection: Assignment.order('assignments.assignmentdate DESC'), label_method: :assignment_name, include_blank: false %>
+  <%= f.association :student, collection: Student.order('lastname ASC'), label_method: :student_name, include_blank: false %>
+  <div class="fields-inline">
+    <%= f.input :speakingscore, label: "Speaking score", autofocus: true, wrapper_html: { style: "display: inline" } %>
+    <%= f.input :listeningscore, label: "Listening score", wrapper_html: { style: "display: inline" } %>
+    <%= f.input :vocabscore, label: "Vocab score", wrapper_html: { style: "display: inline" } %>
+    <%= f.input :readscore, label: "Reading score", wrapper_html: { style: "display: inline" } %>
+  </div>
+  <div class="fields-inline">
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, "Add scores" %>
+</div>
+<% end %>
