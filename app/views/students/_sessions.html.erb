@@ -10,8 +10,11 @@
       <div class="col-md-3">
         <%= metaclass.instructor.instructor %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <%= metaclass.metaclassdaytime %>
+      </div>
+      <div class="col-md-1">
+        <%= metaclass.student_metaclasses.where(student: @student).first.metaclassbeginlevel %>
       </div>
     </div>
     <% end %>

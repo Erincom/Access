@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :students
-  resources :metaclasses
+
+  resources :metaclasses do
+    member do
+      get 'new_student'
+      patch 'save_student'
+    end
+  end
+
   resources :instructors, only: [:new, :create]
   resources :sessions, only: [:new, :create]
   resources :assignments

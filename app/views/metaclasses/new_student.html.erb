@@ -1,0 +1,19 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h2>Add a student to</h2>
+      <%= @metaclass.metaclassname %>
+
+      <%= simple_form_for @metaclass, url: save_student_metaclass_path(@metaclass) do |f| %>
+
+      <div class="form-inputs">
+        <%= f.association :students, collection: Student.order('lastname ASC'), label_method: :student_name, autofocus: true, class: 'select select_lastname' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Add student" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

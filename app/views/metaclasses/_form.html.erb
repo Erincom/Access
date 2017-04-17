@@ -12,7 +12,6 @@
           <%= f.input :metaclassdaytime, required: true, label: "Timeslot", wrapper_html: { style: "display: inline" } %>
           <%= f.input :metaclasslocation, required: true, label: "Location" %>
         </div>
-        <%= f.association :students, collection: Student.order('lastname ASC'), label_method: :student_name, include_blank: false %>
       </div>
 
       <div class="form-actions">
