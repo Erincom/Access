@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get 'new_student'
       patch 'save_student'
+      get 'remove_student'
     end
   end
 

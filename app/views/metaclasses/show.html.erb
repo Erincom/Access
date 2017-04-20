@@ -21,17 +21,26 @@
   <h3>Students:</h3>
   <% @metaclass.students.each do |student| %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= link_to student_path(student) do %>
       <p><%= student.firstname %> <%= student.lastname %></p>
       <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-1">
       <p><%= student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel %></p>
+    </div>
+    <div class="col-md-3">
+      <%= link_to remove_student_metaclass_path(@metaclass, student) do %>
+      <i class="fa fa-times"></i>
+      <span>Remove</span>
+      <% end %>
     </div>
   </div>
   <% end %>
-  <%= link_to "Add a student to this metaclass", new_student_metaclass_path(@metaclass) %>
+  <%= link_to new_student_metaclass_path(@metaclass) do %>
+  <i class="fa fa-plus"></i>
+  <span>Add a student to this metaclass</span>
+  <% end %>
   <div class="row">
     <div class="col-md-12">
       <h3>Notes:</h3>

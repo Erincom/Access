@@ -1,6 +1,6 @@
 class MetaclassesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_metaclass, only: [:new_student, :show, :edit, :update, :destroy]
+  before_action :set_metaclass, only: [:new_student, :save_student, :remove_student, :show, :edit, :update, :destroy]
 
   def index
     @metaclasses = Metaclass
@@ -22,13 +22,19 @@ class MetaclassesController < ApplicationController
   end
 
   def save_student
-    raise
-    @metaclass.student = params[:metaclass]["student_ids"][1].to_i
+    @student = Student.find(params[:metaclass][:student_ids][1].to_i)
+    @metaclass.students << @student
     if @metaclass.save
       redirect_to @metaclass
     else
       render :new_student
     end
+  end
+
+  def remove_student
+    @student = Student.find(params[:format])
+    @metaclass.students.delete(@student)
+    redirect_to @metaclass
   end
 
   def create
