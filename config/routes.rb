@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  resources :students
+  resources :students do
+    member do
+      get 'edit_notes'
+      patch 'update_notes'
+    end
+  end
 
   resources :metaclasses do
     member do

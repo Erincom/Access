@@ -27,7 +27,13 @@
       <% end %>
     </div>
     <div class="col-md-1">
-      <p><%= student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel %></p>
+
+        <% if student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel.present? %>
+          <p><%= student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel %></p>
+        <% else %>
+          <p>--</p>
+        <% end %>
+
     </div>
     <div class="col-md-3">
       <%= link_to remove_student_metaclass_path(@metaclass, student) do %>

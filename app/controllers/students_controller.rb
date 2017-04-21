@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :edit_notes, :update_notes]
 
   def index
     @students = Student
@@ -51,6 +51,17 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
+  def edit_notes
+  end
+
+  def update_notes
+    if @student.update(student_params)
+      redirect_to @student
+    else
+      render :edit_notes
+    end
+  end
+
   private
 
   def set_student
@@ -58,6 +69,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:firstname, :lastname, :company, :division, :originallevel, :currentlevel, :testscoredate, :listeningtestscore, :grammartestscore, :vocabtestscore, :readingtestscore, :leftthecompany)
+    params.require(:student).permit(:firstname, :lastname, :company, :division, :originallevel, :currentlevel, :testscoredate, :listeningtestscore, :grammartestscore, :vocabtestscore, :readingtestscore, :leftthecompany, :notes)
   end
 end
