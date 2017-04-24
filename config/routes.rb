@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   resources :assignments
   resources :michiganscores, only: [:show, :new, :create, :edit, :update]
+  resources :student_metaclasses, only: [:edit, :update]
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,0 +1,2 @@
+module StudentMetaclassesHelper
+end
