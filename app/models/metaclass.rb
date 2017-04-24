@@ -6,6 +6,7 @@ class Metaclass < ApplicationRecord
   belongs_to :session, foreign_key: "sessionid"
   has_many :student_metaclasses, foreign_key: "metaclassid"
   has_many :students, through: :student_metaclasses
+  has_many :lessons, foreign_key: "metaclassid"
 
   validates :metaclassname, presence: true, uniqueness: true
   validates :metaclassdaytime, presence: true
