@@ -17,4 +17,8 @@ class Student < ApplicationRecord
   def student_name
     "#{self.lastname}, #{self.firstname}"
   end
+
+  def self.list_companies
+    select(:company).distinct.map(&:company)
+  end
 end
