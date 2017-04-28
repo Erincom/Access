@@ -1,0 +1,39 @@
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-3">
+      <p>Metaclass start level</p>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <% @metaclass.students.each do |student| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to student_path(student) do %>
+      <p><%= student.firstname %> <%= student.lastname %></p>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to edit_student_metaclass_path(student.student_metaclasses.where(metaclass: @metaclass).first) do %>
+      <% if student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel.present? %>
+      <%= student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel %>
+      <% else %>
+      --
+      <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to remove_student_metaclass_path(@metaclass, student) do %>
+      <i class="fa fa-times"></i>
+      <span>Remove</span>
+      <% end %>
+    </div>
+  </div>
+
+  <% end %>
+
+  <%= link_to new_student_metaclass_path(@metaclass) do %>
+  <i class="fa fa-plus"></i>
+  <span>Add a student to this metaclass</span>
+  <% end %>

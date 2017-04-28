@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :metaclasses do
+    resources :lessons, only: [:show, :new, :create, :edit, :update, :destroy]
     member do
       get 'new_student'
       patch 'save_student'
       get 'remove_student'
+      get 'edit_notes'
+      patch 'update_notes'
     end
   end
 

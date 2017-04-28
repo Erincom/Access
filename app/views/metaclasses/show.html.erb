@@ -18,41 +18,34 @@
       <p>Number of hours: <%= calculate_hours(@metaclass.metaclassdaytime) %></p>
     </div>
   </div>
-  <h3>Students:</h3>
-  <% @metaclass.students.each do |student| %>
-  <div class="row">
-    <div class="col-md-4">
-      <%= link_to student_path(student) do %>
-      <p><%= student.firstname %> <%= student.lastname %></p>
-      <% end %>
-    </div>
-    <div class="col-md-2">
-      <%= link_to edit_student_metaclass_path(student.student_metaclasses.where(metaclass: @metaclass).first) do %>
-        <% if student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel.present? %>
-          <%= student.student_metaclasses.where(metaclass: @metaclass).first.metaclassbeginlevel %>
-        <% else %>
-          --
-        <% end %>
-      <% end %>
-    </div>
-    <div class="col-md-3">
-      <%= link_to remove_student_metaclass_path(@metaclass, student) do %>
-      <i class="fa fa-times"></i>
-      <span>Remove</span>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
-  <%= link_to new_student_metaclass_path(@metaclass) do %>
-  <i class="fa fa-plus"></i>
-  <span>Add a student to this metaclass</span>
-  <% end %>
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Notes:</h3>
 
-      <p><%= @metaclass.metaclassnote.html_safe if @metaclass.metaclassnote.present? %></p>
-    </div>
+<div class="row">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#students" aria-controls="students" role="tab" data-toggle="tab">Students</a></li>
+      <li role="presentation"><a href="#classes" aria-controls="classes" role="tab" data-toggle="tab">Classes</a></li>
+      <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
+    </ul>
   </div>
+
+  <div class="tab-content">
+
+    <div role="tabpanel" class="tab-panel fade in active" id="students"><%= render 'students' %>
+    </div>
+
+    <div role="tabpanel" class="tab-panel fade" id="classes"><%= render 'classes' %>
+    </div>
+
+    <div role="tabpanel" class="tab-panel fade" id="notes"><%= render 'notes' %>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.nav-tabs').tab();
+    });
+  </script>
 
 </div>

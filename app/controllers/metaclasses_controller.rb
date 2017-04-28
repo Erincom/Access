@@ -1,6 +1,6 @@
 class MetaclassesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_metaclass, only: [:new_student, :save_student, :remove_student, :show, :edit, :update, :destroy]
+  before_action :set_metaclass, only: [:new_student, :save_student, :remove_student, :edit_notes, :update_notes, :show, :edit, :update, :destroy]
 
   def index
     @metaclasses = Metaclass
@@ -60,6 +60,17 @@ class MetaclassesController < ApplicationController
   def destroy
     @metaclass.destroy
     redirect_to metaclasses_path
+  end
+
+  def edit_notes
+  end
+
+  def update_notes
+    if @metaclass.update(metaclass_params)
+      redirect_to @metaclass
+    else
+      render :edit_notes
+    end
   end
 
   private
