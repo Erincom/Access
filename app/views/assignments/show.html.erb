@@ -34,30 +34,30 @@
     </div>
   </div>
 
-  <% @assignment.michiganscores.each do |score| %>
+  <% remove_empty_scores(@assignment.michiganscores).each do |score| %>
   <div class="row">
     <div class="col-md-4">
-      <%= link_to student_path(score.student) do %>
-      <%= score.student.firstname %> <%= score.student.lastname %>
+        <%= link_to student_path(score.student) do %>
+        <%= score.student.firstname %> <%= score.student.lastname %>
       <% end %>
     </div>
     <div class="col-md-1">
       <%= score.speakingscore %>
     </div>
     <div class="col-md-1">
-      <%= score.listeningscore %>
+      <%= score.recalibrate_listening_score %>
     </div>
     <div class="col-md-1">
-      <%= score.grammarscore %>
+      <%= score.recalibrate_grammar_score %>
     </div>
     <div class="col-md-1">
-      <%= score.vocabscore %>
+      <%= score.recalibrate_vocab_score %>
     </div>
     <div class="col-md-1">
-      <%= score.readscore %>
+      <%= score.recalibrate_read_score %>
     </div>
     <div class="col-md-1">
-      <%= total_score(score.speakingscore, score.listeningscore, score.grammarscore, score.vocabscore, score.readscore) %>
+      <%= total_score(score.speakingscore, score.recalibrate_listening_score, score.recalibrate_grammar_score, score.recalibrate_vocab_score, score.recalibrate_read_score) %>
     </div>
 
   </div>

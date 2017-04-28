@@ -21,4 +21,37 @@ class Student < ApplicationRecord
   def self.list_companies
     select(:company).distinct.map(&:company)
   end
+
+  def recalibrate_listening_score
+    if self.testscoredate < Date.new(2013,01,01)
+      self.listeningtestscore = ((self.listeningtestscore / 20.0) * 25).round(0)
+    else
+      self.listeningtestscore
+    end
+  end
+
+  def recalibrate_grammar_score
+    if self.testscoredate < Date.new(2013,01,01)
+      self.grammartestscore = ((self.grammartestscore / 30.0) * 20).round(0)
+    else
+      self.grammartestscore
+    end
+  end
+
+  def recalibrate_vocab_score
+    if self.testscoredate < Date.new(2013,01,01)
+      self.vocabtestscore = ((self.vocabtestscore / 30.0) * 20).round(0)
+    else
+      self.vocabtestscore
+    end
+  end
+
+    def recalibrate_read_score
+    if self.testscoredate < Date.new(2013,01,01)
+      self.readingtestscore = ((self.readingtestscore / 20.0) * 15).round(0)
+    else
+      self.readingtestscore
+    end
+  end
+
 end

@@ -3,5 +3,5 @@
   <p class="fa fa-pencil"> Edit</p>
   <% end %>
   <br>
-  <%= sanitize(@student.notes, tags: %w(br li ul div strong).html_safe if @student.notes.present? %>
+  <%= sanitize(@student.notes, tags: %w(br li ul div strong)).html_safe if @student.notes.present? %>
 </div>

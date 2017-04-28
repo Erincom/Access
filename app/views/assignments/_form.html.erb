@@ -4,7 +4,7 @@
           <%= f.association :session, collection: Session.order('sessionstartdate DESC'),label_method: :sessionname, include_blank: false, autofocus: true, wrapper_html: { style: "display: inline" } %>
           <%= f.input :assignmentdate, as: :date, label: "Assignment date", required: true, wrapper_html: { style: "display: inline" } %>
         </div>
-        <%= f.input :assignmentdescription, label: "Assignment description", required: true %>
+        <%= f.input :assignmentdescription, label: "Assignment description", required: true, placeholder: "Winter 2017 - FIS placement test - Form E" %>
       </div>
 
       <div class="form-actions">

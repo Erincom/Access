@@ -25,10 +25,10 @@
     </div>
     <div class="col-md-6">
       <% if @student.readingtestscore.present? %>
-      <p>Listening test score: <%= @student.listeningtestscore %> / 25</p>
-      <p>Grammar test score: <%= @student.grammartestscore %> / 20</p>
-      <p>Vocabulary test score: <%= @student.vocabtestscore %> / 20</p>
-      <p>Reading test score: <%= @student.readingtestscore %> / 15</p>
+      <p>Listening test score: <%= @student.recalibrate_listening_score %> / 25</p>
+      <p>Grammar test score: <%= @student.recalibrate_grammar_score %> / 20</p>
+      <p>Vocabulary test score: <%= @student.recalibrate_vocab_score %> / 20</p>
+      <p>Reading test score: <%= @student.recalibrate_read_score %> / 15</p>
       <% end %>
     </div>
   </div>

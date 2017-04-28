@@ -22,7 +22,7 @@
       <p>Reading</p>
     </div>
   </div>
-  <% @student.michiganscores.each do |score| %>
+  <% @student.michiganscores.sort_by(&:assignment).reverse.each do |score| %>
   <div class="row">
     <div class="col-md-2">
       <%= score.assignment.session.sessionname %>
@@ -34,16 +34,16 @@
      <%= score.speakingscore %>
    </div>
    <div class="col-md-1">
-    <%= score.listeningscore %>
+    <%= score.recalibrate_listening_score %>
   </div>
   <div class="col-md-1">
-    <%= score.grammarscore %>
+    <%= score.recalibrate_grammar_score %>
   </div>
   <div class="col-md-1">
-    <%= score.vocabscore %>
+    <%= score.recalibrate_vocab_score %>
   </div>
   <div class="col-md-1">
-    <%= score.readscore %>
+    <%= score.recalibrate_read_score %>
   </div>
   <div class="col-md-1">
     <div class="edit-links">
