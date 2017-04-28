@@ -1,6 +1,6 @@
 <div class="container padded">
   <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-lg-8 col-lg-offset-2">
       <h2>Edit notes</h2>
 
       <%= simple_form_for @student, url: update_notes_student_path(@student) do |f| %>
@@ -17,13 +17,9 @@
   </div>
 </div>
 
-<script src="components/wysihtml5x/dist/wysihtml5x-toolbar.min.js"></script>
-<script src="dist/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="bootstrap3-wysihtml5.min.js"></script>
-<script type="text/javascript">
-$('#student_notes').wysihtml5({
-    toolbar: {
-      fa: true
-    }
-  });
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
+
+<script> $(function() { $('.notes').froalaEditor() }); </script>

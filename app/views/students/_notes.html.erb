@@ -1,7 +1,7 @@
 <div id="notes">
-  <%= @student.notes %>
-  <br>
   <%= link_to edit_notes_student_path do %>
   <p class="fa fa-pencil"> Edit</p>
   <% end %>
+  <br>
+  <%= sanitize(@student.notes, tags: %w(br li ul div strong).html_safe if @student.notes.present? %>
 </div>

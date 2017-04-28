@@ -1,12 +1,12 @@
 <div class="container padded">
   <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-lg-8 col-lg-offset-2">
       <h2>Edit notes</h2>
 
       <%= simple_form_for @metaclass, url: update_notes_metaclass_path(@metaclass) do |f| %>
 
       <div class="form-inputs">
-        <%= f.input :metaclassnote, as: :text, input_html: {rows: 18}, label: false, autofocus: true %>
+        <%= f.input :metaclassnote, as: :text, input_html: {rows: 18, class: 'notes'}, label: false, autofocus: true %>
       </div>
 
       <div class="form-actions">
@@ -16,3 +16,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
+
+<script> $(function() { $('.notes').froalaEditor() }); </script>
