@@ -1,3 +1,4 @@
+<div id="notes">
   <div class="row">
     <div class="col-md-12">
       <%= link_to edit_notes_metaclass_path do %>
@@ -7,3 +8,4 @@
       <p><%= sanitize(@metaclass.metaclassnote, tags: %w(br li ul div)).html_safe if @metaclass.metaclassnote.present? %></p>
     </div>
   </div>
+</div>

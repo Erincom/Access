@@ -1,0 +1,17 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h2>Edit attendance</h2>
+
+      <%= simple_form_for @student_lesson do |f| %>
+        <div class="form-inputs">
+          <%= f.input :attendance, autofocus: true, label: "Present in class" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Save" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,4 +4,7 @@ class Lesson < ApplicationRecord
 
   belongs_to :metaclass, foreign_key: "metaclassid"
   belongs_to :instructor, foreign_key: "instructorid"
+
+  has_many :student_lessons, foreign_key: "classid"
+  has_many :students, through: :student_lessons
 end

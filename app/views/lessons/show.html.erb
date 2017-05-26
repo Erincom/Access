@@ -1,2 +1,66 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+<div class="container padded">
+  <div class="edit-links">
+    <%= link_to edit_metaclass_lesson_path(@metaclass, @lesson) do %>
+    <span class="fa fa-pencil"> Edit</span>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Metaclass: <%= @metaclass.metaclassname %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Class name: <%= @lesson.classname if @lesson.classname.present? %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Class date: <%= @lesson.classdate.strftime('%B %e, %Y') %>
+    </div>
+    <div class="col-md-6">
+      Instructor: <%= @lesson.instructor.instructor %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Class timeslot: <%= @lesson.classtime %>
+    </div>
+    <div class="col-md-6">
+      Class location: <%= @lesson.location %>
+    </div>
+  </div>
+  <h3>Students</h3>
+  <% @lesson.students.each do |student| %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to remove_student_metaclass_lesson_path(@metaclass, @lesson, student) do %>
+      <i class="fa fa-times"></i>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to student_path(student) do %>
+      <p><%= student.firstname %> <%= student.lastname %></p>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <% if student.student_lessons.where(lesson: @lesson).first.attendance == true %>
+      <p>Present</p>
+      <% else %>
+      <p>X</p>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to edit_student_lesson_path(student.student_lessons.where(lesson: @lesson).first) do %>
+      <span class="fa fa-pencil"> Edit attendance</span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to new_student_metaclass_lesson_path(@metaclass, @lesson) do %>
+  <i class="fa fa-plus"></i>
+  <span>Add a student to this class</span>
+  <% end %>
+
+</div>
