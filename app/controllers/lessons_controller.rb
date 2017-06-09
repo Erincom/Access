@@ -37,7 +37,6 @@ class LessonsController < ApplicationController
   @student = Student.find(params[:lesson][:student_ids][1].to_i)
   @metaclass = @lesson.metaclass
   @lesson.students << @student
-  raise
   if @lesson.save
     redirect_to metaclass_lesson_path(@metaclass, @lesson)
   else

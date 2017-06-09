@@ -6,7 +6,9 @@
   </div>
   <div class="row">
     <div class="col-md-6">
+      <%= link_to metaclass_path(@metaclass) do %>
       Metaclass: <%= @metaclass.metaclassname %>
+      <% end %>
     </div>
   </div>
   <div class="row">

@@ -7,7 +7,8 @@ class StudentLessonsController < ApplicationController
     @student_lesson = StudentLesson.find(params[:id])
     if @student_lesson.update(student_lesson_params)
       @lesson = @student_lesson.lesson
-      redirect_to @lesson
+      @metaclass = @lesson.metaclass
+      redirect_to metaclass_lesson_path(@metaclass, @lesson)
     else
       render :edit
     end
