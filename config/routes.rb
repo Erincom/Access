@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   resources :student_metaclasses, only: [:edit, :update]
   resources :student_lessons, only: [:edit, :update]
 
+  get '/reports' => 'pages#reports'
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

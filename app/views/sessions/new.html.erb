@@ -6,8 +6,8 @@
       <%= simple_form_for @session do |f| %>
         <div class="form-inputs">
           <%= f.input :sessionname, required: true, label: "Session", placeholder: "Fall 2005", autofocus: true %>
-          <%= f.input :sessionstartdate, as: :date, label: "Session start date", required: true %>
-          <%= f.input :sessionenddate, as: :date, label: "Session end date", required: true %>
+          <%= f.input :sessionstartdate, as: :date_picker, label: "Session start date", required: true %>
+          <%= f.input :sessionenddate, as: :date_picker, label: "Session end date", required: true %>
         </div>
 
         <div class="form-actions">

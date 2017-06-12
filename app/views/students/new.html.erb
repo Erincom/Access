@@ -18,7 +18,7 @@
           <%= f.input :originallevel, required: true, label: "Original level", wrapper_html: { style: "display: inline" } %>
           <%= f.input :currentlevel, required: true, label: "Current level", wrapper_html: { style: "display: inline" } %>
         </div>
-        <%= f.input :testscoredate, as: :date, required: true, label: "Placement test date" %>
+        <%= f.input :testscoredate, as: :date_picker, required: true, label: "Placement test date" %>
         <div class="fields-inline">
           <%= f.input :listeningtestscore, label: "Listening test score ( / 25)", wrapper_html: { style: "display: inline" } %>
           <%= f.input :grammartestscore, label: "Grammar test score ( / 20)", wrapper_html: { style: "display: inline" } %>

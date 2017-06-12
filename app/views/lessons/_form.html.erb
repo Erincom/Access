@@ -3,7 +3,7 @@
       <div class="form-inputs">
         <%= f.input :classname, label: "Class name (optional)", autofocus: true %>
         <div class="fields-inline">
-          <%= f.input :classdate, as: :date, required: true, label: "Date", wrapper_html: { style: "display: inline" } %>
+          <%= f.input :classdate, as: :date_picker, required: true, label: "Date", wrapper_html: { style: "display: inline" } %>
           <%= f.input :classtime, required: true, label: "Timeslot", wrapper_html: { style: "display: inline" } %>
         </div>
         <div class="fields-inline">
