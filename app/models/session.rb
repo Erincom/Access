@@ -3,6 +3,7 @@ class Session < ApplicationRecord
 
   has_many :metaclasses, foreign_key: "sessionid"
   has_many :assignments, foreign_key: "sessionid"
+  has_many :lessons, through: :metaclasses
 
   validates :sessionname, presence: true
   validates :sessionstartdate, presence: true

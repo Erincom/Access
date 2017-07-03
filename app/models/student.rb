@@ -21,7 +21,7 @@ class Student < ApplicationRecord
   end
 
   def self.list_companies
-    select(:company).distinct.map(&:company)
+    select(:company).distinct.map(&:company).sort_by {|company| company.downcase}
   end
 
   def recalibrate_listening_score

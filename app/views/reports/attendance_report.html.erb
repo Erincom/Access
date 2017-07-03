@@ -1,0 +1,39 @@
+<div class="container padded">
+  <h1><%= @company %></h1>
+  <h3><%= @session.sessionname %></h3>
+  <div class="row">
+    <div class="col-md-4 padded-sm">
+      Student name
+    </div>
+    <div class="col-md-2 padded-sm">
+      Hours attended
+    </div>
+    <div class="col-md-2 padded-sm">
+      Total hours
+    </div>
+    <div class="col-md-2 padded-sm">
+      Attendance
+    </div>
+  </div>
+  <% @students.each do |student| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to student_path(student) do %>
+      <%= student.firstname %> <%= student.lastname %>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <% hours_attended = calculate_hours_attended(student, student.metaclasses.where(session: @session)) %>
+      <%= hours_attended %>
+    </div>
+    <div class="col-md-2">
+      <% total_hours = calculate_total_hours(student.metaclasses.where(session: @session)) %>
+      <%= total_hours %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

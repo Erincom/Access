@@ -2,6 +2,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  def reports
+  def all_reports
   end
 end
