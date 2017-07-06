@@ -23,14 +23,15 @@
       <% end %>
     </div>
     <div class="col-md-2">
-      <% hours_attended = calculate_hours_attended(student, student.metaclasses.where(session: @session)) %>
+      <% hours_attended = calculate_hours_attended(student, StudentLesson.where(lesson: @lesson_ids, student: student)) %>
       <%= hours_attended %>
     </div>
     <div class="col-md-2">
-      <% total_hours = calculate_total_hours(student.metaclasses.where(session: @session)) %>
+      <% total_hours = calculate_total_hours(student, StudentLesson.where(lesson: @lesson_ids, student: student)) %>
       <%= total_hours %>
     </div>
     <div class="col-md-2">
+    <%= number_to_percentage((hours_attended / total_hours) * 100, precision: 0) %>
     </div>
   </div>
   <% end %>
