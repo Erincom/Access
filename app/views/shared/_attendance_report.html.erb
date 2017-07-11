@@ -2,5 +2,7 @@
 <%= select_tag :company, options_for_select(Student.list_companies), {include_blank: false, class: 'select select_company' } %>
 <%= select_tag :session, options_from_collection_for_select(Session.order('sessionstartdate DESC'), :sessionid, :sessionname), {include_blank: false, class: 'select select_metaclassname' }  %>
 <!-- <div class="blank-space"></div> -->
-<%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
+<%= submit_tag "Preview", class: "btn btn-primary homepage-button" %>
+<%= submit_tag "Excel", class: "btn btn-primary homepage-button" %>
 <% end %>
+

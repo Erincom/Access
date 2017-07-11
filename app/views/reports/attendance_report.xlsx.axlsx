@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "AttendanceReport") do |sheet|
+  sheet.add_row ["First name", "Last name", "Hours attended", "Total hours"]
+
+  @students.each do |student|
+    sheet.add_row [student.firstname, student.lastname, calculate_hours_attended(student, StudentLesson.where(lesson: @lesson_ids, student: student)), calculate_total_hours(student, StudentLesson.where(lesson: @lesson_ids, student: student))]
+ end
+end

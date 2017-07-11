@@ -10,6 +10,14 @@ class ReportsController < ApplicationController
       student_array = StudentLesson.where(lesson: @lesson_ids, student: company_students).group_by(&:student).keys
       students = student_array.select(&:studentid)
       @students = students.sort_by(&:lastname)
+
+      if params[:commit] == "Excel"
+        render xlsx: "attendance_report", template: "reports/attendance_report.xlsx.axlsx"
+      else
+        respond_to do |format|
+          format.html
+        end
+      end
       # @lessons_per_student = Lesson.where(session: @session).group(:student_id).group_by(&:student)
     end
   end

@@ -20,7 +20,9 @@ gem "wysiwyg-rails"
 gem 'coffee-rails'
 gem 'momentjs-rails', '~> 2.9',  github: 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
+gem 'rubyzip', '~> 1.1.0'
 
 group :development, :test do
   gem 'binding_of_caller'
