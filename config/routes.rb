@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get '/attendance_report' => 'reports#attendance_report'
   get '/progress_report' => 'reports#progress_report'
   get '/score_report' => 'reports#score_report'
+  get '/signin_sheet' => 'reports#signin_sheet'
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

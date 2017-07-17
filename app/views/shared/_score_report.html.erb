@@ -1,1 +1,6 @@
-This is the score report.
+<%= form_tag(score_report_path, :method => "get", class: 'inline-form') do %>
+<%= select_tag :student, options_from_collection_for_select(Student.order('lastname ASC'), :studentid, :student_name), {include_blank: false, class: 'select select_lastname' }  %>
+<!-- <div class="blank-space"></div> -->
+<%= submit_tag "Preview", class: "btn btn-primary homepage-button" %>
+<%= submit_tag "PDF", class: "btn btn-primary homepage-button" %>
+<% end %>

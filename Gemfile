@@ -23,6 +23,8 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 gem 'rubyzip', '~> 1.1.0'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -1,0 +1,51 @@
+<div class="container padded">
+  <div class="navbar-wagon-brand">
+  <%= image_tag "logo.jpg" %>
+  </div>
+  <h2><%= @student.firstname %> <%= @student.lastname %></h2>
+  <h4>Current level: <%= @student.currentlevel %></h4>
+
+  <div class="row">
+    <div class="col-md-2">
+      <p>Session</p>
+    </div>
+    <div class="col-md-1">
+      <p>Speaking (/20)</p>
+    </div>
+    <div class="col-md-1">
+      <p>Listening (/25)</p>
+    </div>
+    <div class="col-md-1">
+      <p>Grammar (/20)</p>
+    </div>
+    <div class="col-md-1">
+      <p>Vocabulary (/20)</p>
+    </div>
+    <div class="col-md-1">
+      <p>Reading (/15)</p>
+    </div>
+  </div>
+
+  <% @student.michiganscores.sort_by(&:assignment).reverse.each do |score| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= score.assignment.session.sessionname %>
+    </div>
+    <div class="col-md-1">
+      <%= score.speakingscore %>
+    </div>
+    <div class="col-md-1">
+      <%= score.recalibrate_listening_score %>
+    </div>
+    <div class="col-md-1">
+      <%= score.recalibrate_grammar_score %>
+    </div>
+    <div class="col-md-1">
+      <%= score.recalibrate_vocab_score %>
+    </div>
+    <div class="col-md-1">
+      <%= score.recalibrate_read_score %>
+    </div>
+  </div>
+  <% end %>
+</div>
