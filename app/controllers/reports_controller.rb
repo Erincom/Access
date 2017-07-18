@@ -29,24 +29,29 @@ class ReportsController < ApplicationController
     if params[:student].present?
       @student = Student.find(params[:student])
     end
-    if params[:commit] == "PDF"
-      # respond_to do |format|
-      #   format.pdf do
-          render pdf: "score_report"   # Excluding ".pdf" extension.
-      #   end
-      # end
+     if params[:commit] == "PDF"
+       # respond_to do |format|
+       #    format.pdf do
+           render pdf: "score_report",   # Excluding ".pdf" extension.
+                  page_size: "A4"
+    #     end
+    #    end
     else
-      respond_to do |format|
-        format.html
-      end
+    respond_to do |format|
+      format.html
     end
+     end
   end
 
   def signin_sheet
     if params[:metaclass].present? && params[:month].present?
       @metaclass = Metaclass.find(params[:metaclass])
-      @metaclass.lessons.where(classdate: params[:month])
+      @month = params[:month]
+      @lessons = @metaclass.lessons.where("extract (month FROM classdate) = ?", params[:month]).order("classdate ASC")
+      @year = @lessons.first.classdate.year
     end
+    render pdf: "signin_sheet",
+          page_size: "A4"
   end
 
 end
